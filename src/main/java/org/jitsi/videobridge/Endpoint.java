@@ -568,7 +568,7 @@ public class Endpoint
     public long getLastActivity()
     {
         PacketIOActivity packetIOActivity
-                = this.transceiver.getPacketIOActivity();
+                = this.dtlsTransport.getPacketIOActivity();
         return packetIOActivity.getLastOverallActivityTimestampMs();
     }
 
@@ -590,7 +590,7 @@ public class Endpoint
         }
 
         PacketIOActivity packetIOActivity
-                = this.transceiver.getPacketIOActivity();
+                = this.dtlsTransport.getPacketIOActivity();
 
         int maxExpireTimeSecsFromChannelShims = channelShims.stream()
                 .map(ChannelShim::getExpire)
